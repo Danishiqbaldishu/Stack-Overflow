@@ -6,8 +6,10 @@ import dotenv from "dotenv";
 import userRoutes from './routes/users.js'
 import questionRoutes from "./routes/Questions.js";
 import answerRoutes from "./routes/Answers.js";
+import connectDB from "./connectMongoDb.js";
 
 dotenv.config(); 
+connectDB();
 
 const app = express();
 app.use(express.json({limit:"30mb", extended:true}))
@@ -27,6 +29,10 @@ const PORT = process.env.PORT || 5000
 const DATABASE_URL = process.env.CONNECTION_URL
 // = iski jagah mongodp ka url bhi use kar skte hai
 
-mongoose.connect( DATABASE_URL, {useNewUrlParser:true, useUnifiedTopology:true})
+// mongoose.connect( DATABASE_URL, {useNewUrlParser:true, useUnifiedTopology:true})
+// .then(() =>app.listen(PORT, () => {console.log(`server running on port ${PORT}`)}))
+// .catch((err)=> console.log(err.message))
+
+mongoose.connect( DATABASE_URL)
 .then(() =>app.listen(PORT, () => {console.log(`server running on port ${PORT}`)}))
 .catch((err)=> console.log(err.message))
