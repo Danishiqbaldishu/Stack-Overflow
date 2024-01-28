@@ -9,6 +9,7 @@ import Tags from "./pages/Tags/Tags.jsx";
  import Users from "./pages/Users/Users.jsx";
  import UserProfile from "./pages/UserProfile/UserProfile.jsx";
 
+
  const AllRoutes = ({ slideIn, handleSlideIn }) => {
    return (
      <Routes>
@@ -42,6 +43,7 @@ import Tags from "./pages/Tags/Tags.jsx";
            <UserProfile slideIn={slideIn} handleSlideIn={handleSlideIn} />
          }
        />
+      
      </Routes>
    );
  };
